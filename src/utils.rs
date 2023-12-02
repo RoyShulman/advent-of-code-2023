@@ -4,7 +4,7 @@ use std::{
     path::Path,
 };
 
-pub fn read_lines<P: AsRef<Path>>(path: P) -> std::io::Lines<BufReader<File>> {
+pub fn read_lines<P: AsRef<Path>>(path: P) -> impl IntoIterator<Item = String> {
     let file = File::open(path).unwrap();
-    BufReader::new(file).lines()
+    BufReader::new(file).lines().map(|x| x.unwrap())
 }

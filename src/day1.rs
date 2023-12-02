@@ -6,11 +6,7 @@ use crate::utils::read_lines;
 pub fn day1<P: AsRef<Path>>(filename: P) -> u32 {
     read_lines(filename)
         .into_iter()
-        .map(|x| {
-            get_first_and_last_digit(&x.unwrap())
-                .unwrap()
-                .as_two_digit_num() as u32
-        })
+        .map(|x| get_first_and_last_digit(&x).unwrap().as_two_digit_num() as u32)
         .sum()
 }
 
