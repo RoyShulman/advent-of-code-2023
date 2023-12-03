@@ -87,7 +87,7 @@ impl FromStr for EngineLine {
             }
         }
 
-        // if the line ends in a digit we musn't forget to parse the last number
+        // if the line ends in a digit we mustn't forget to parse the last number
         if let Some(possible_part_number) =
             parse_possible_part_number(s, &mut parsing_number_start, s.len())?
         {
