@@ -1,7 +1,7 @@
 use std::{
     fmt::Debug,
     fs::File,
-    io::{BufRead, BufReader},
+    io::{BufRead, BufReader, Read},
     path::{Path, PathBuf},
     str::FromStr,
 };
@@ -13,7 +13,7 @@ pub fn read_lines<P: AsRef<Path>>(path: P) -> impl IntoIterator<Item = String> {
         .map(std::result::Result::unwrap)
 }
 
-pub fn parse_input<P, T>(path: P) -> Vec<T>
+pub fn parse_input_lines<P, T>(path: P) -> Vec<T>
 where
     P: AsRef<Path>,
     T: FromStr,
@@ -23,6 +23,20 @@ where
         .into_iter()
         .map(|x| x.parse().unwrap())
         .collect()
+}
+
+pub fn parse_input<P, T>(path: P) -> T
+where
+    P: AsRef<Path>,
+    T: FromStr,
+    T::Err: Debug,
+{
+    let mut content = String::new();
+    File::open(path)
+        .unwrap()
+        .read_to_string(&mut content)
+        .unwrap();
+    content.parse().unwrap()
 }
 
 #[cfg(test)]
