@@ -6,11 +6,12 @@ use crate::utils::parse_input;
 // pub mod day2;
 // pub mod day3;
 // pub mod day4;
-pub mod day5;
+// pub mod day5;
+pub mod day6;
 mod utils;
 
 fn main() {
-    let almanac = parse_input(get_day_input("day5"));
-    println!("{}", day5::part1(&almanac));
-    println!("{}", day5::part2(&almanac));
+    let races = parse_input(get_day_input("day6"));
+    println!("{}", day6::part1(&races));
+    println!("{}", day6::part2(&races));
 }
