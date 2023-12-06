@@ -10,7 +10,7 @@ pub struct Race {
 }
 
 impl Race {
-    fn num_ways_to_win(&self) -> Option<u64> {
+    fn num_ways_to_win_brute_force(&self) -> Option<u64> {
         let mut num_ways = None;
         for hold_time in 1..self.race_time {
             let distance = hold_time * (self.race_time - hold_time);
@@ -20,6 +20,28 @@ impl Race {
         }
 
         num_ways
+    }
+
+    fn num_ways_to_win(&self) -> Option<u64> {
+        // S < (t-w)*w
+        // w - wait time, t - race time, s = record time
+        // w**2 - t*w + s < 0
+
+        // maybe losses precision? think about this
+        let t = -(self.race_time as f64);
+        let s = self.record_distance as f64;
+
+        let discriminant = t.powi(2) - 4. * s;
+        if discriminant < 0. {
+            return None;
+        }
+
+        let sqrt = discriminant.sqrt();
+        let first_root = (-t + sqrt) / 2.;
+        let second_root = (-t - sqrt) / 2.;
+
+        let num_integers_between = first_root.ceil() as u64 - (second_root.floor() as u64 + 1);
+        Some(num_integers_between)
     }
 }
 
