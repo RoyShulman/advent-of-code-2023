@@ -148,7 +148,6 @@ impl Hand {
 
         let non_zero = card_count.into_iter().filter(|x| *x != 0).collect_vec();
         let hand_kind = hand_kind_exluding_special_j(&non_zero);
-        eprintln!("{:?} {}", self.cards, num_j);
         hand_kind.upgrade_by_j_count(num_j).unwrap()
     }
 }
@@ -267,14 +266,6 @@ impl FromStr for HandSet {
 
 pub fn part2(hand_set: &HandSet) -> u32 {
     let mut sorted_hand = hand_set.hand_bids.iter().map(|x| x).collect_vec();
-    eprintln!(
-        "{:?}",
-        hand_set
-            .hand_bids
-            .iter()
-            .map(|x| x.hand.get_hand_kind())
-            .collect_vec()
-    );
     sorted_hand.sort();
 
     sorted_hand
