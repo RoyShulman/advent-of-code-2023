@@ -5,5 +5,5 @@ use aoc::utils::parse_input;
 
 fn main() {
     let hand_set = parse_input(get_day_input("day7"));
-    println!("{}", day7::part1(&hand_set));
+    println!("{}", day7::part2(&hand_set));
 }
