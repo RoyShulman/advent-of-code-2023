@@ -47,6 +47,14 @@ pub fn get_day_test_input(day: &str) -> PathBuf {
     path
 }
 
+#[cfg(test)]
+pub fn get_day_extra_test_input(day: &str, extra_test: usize) -> PathBuf {
+    let mut path = PathBuf::from("input");
+    path.push(day);
+    path.push(format!("test_{}.txt", extra_test));
+    path
+}
+
 pub fn get_day_input(day: &str) -> PathBuf {
     let mut path = PathBuf::from("input");
     path.push(day);
