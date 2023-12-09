@@ -1,10 +1,9 @@
-use aoc::utils::get_day_input;
+use aoc::utils::{get_day_input, parse_input_lines};
 
-use aoc::day8;
-use aoc::utils::parse_input;
+use aoc::day9;
 
 fn main() {
-    let map = parse_input(get_day_input("day8"));
-    println!("{}", day8::part1(&map));
-    println!("{}", day8::part2(&map));
+    let history = parse_input_lines(get_day_input("day9"));
+    println!("{}", day9::part1(&history));
+    println!("{}", day9::part2(&history));
 }
