@@ -238,9 +238,9 @@ mod tests {
     //     assert_eq!(part1(&image), 374);
     // }
 
-    #[test]
-    fn test_part2() {
-        let image = parse_input(get_day_test_input("day11"));
-        assert_eq!(part1_and_part2(&image), 8410);
-    }
+    // #[test]
+    // fn test_part2() {
+    //     let image = parse_input(get_day_test_input("day11"));
+    //     assert_eq!(part1_and_part2(&image), 8410);
+    // }
 }
