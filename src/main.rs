@@ -1,9 +1,9 @@
-use aoc::utils::{get_day_input, parse_input, parse_input_lines};
+use aoc::utils::{get_day_input, parse_input};
 
-use aoc::day11;
+use aoc::day13;
 
 fn main() {
-    let image = parse_input(get_day_input("day11"));
-    println!("{}", day11::part1_and_part2(&image));
-    // println!("{}", day10::part2(&history));
+    let grid_patterns = parse_input(get_day_input("day13"));
+    println!("{}", day13::part1(&grid_patterns));
+    println!("{}", day13::part2(&grid_patterns));
 }
