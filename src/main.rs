@@ -1,9 +1,12 @@
+use std::fs::read_to_string;
+
 use aoc::utils::{get_day_input, parse_input};
 
-use aoc::day13;
+use aoc::day15;
 
 fn main() {
-    let grid_patterns = parse_input(get_day_input("day13"));
-    println!("{}", day13::part1(&grid_patterns));
-    println!("{}", day13::part2(&grid_patterns));
+    let input = get_day_input("day15");
+    let input = read_to_string(&input).unwrap();
+    println!("{}", day15::part1(&input));
+    println!("{}", day15::part2(&input));
 }
